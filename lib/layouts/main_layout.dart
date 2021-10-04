@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:flutter/services.dart';
 import 'package:valid/common/constants/colors.dart';
 import 'package:valid/jobs/views/jobs_view.dart';
 import 'package:valid/layouts/components/bottom_navigation.dart';
@@ -16,7 +17,18 @@ class MainLayout extends StatefulWidget {
 }
 
 class _MainLayoutState extends State<MainLayout> {
-  final int _activeScreenIndex = 3;
+  int _activeScreenIndex = 3;
+
+  _onTabItemTap(index) {
+    _vibrate();
+    setState(() {
+      _activeScreenIndex = index;
+    });
+  }
+
+  _vibrate() {
+    HapticFeedback.mediumImpact();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +44,7 @@ class _MainLayoutState extends State<MainLayout> {
             padding: const EdgeInsets.only(right: 20, bottom: 40, left: 20),
             child: BottomNavigation(
               activeIndex: _activeScreenIndex,
+              onTap: _onTabItemTap,
             )),
       ],
     ));

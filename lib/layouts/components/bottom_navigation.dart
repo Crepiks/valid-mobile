@@ -2,13 +2,18 @@ import "package:flutter/material.dart";
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:valid/common/constants/colors.dart';
 
+typedef ButtonTapHandler = void Function(int index);
+
 class BottomNavigation extends StatelessWidget {
   final int activeIndex;
+  final ButtonTapHandler onTap;
 
-  const BottomNavigation({Key? key, required this.activeIndex})
+  const BottomNavigation(
+      {Key? key, required this.activeIndex, required this.onTap})
       : super(key: key);
 
-  Widget _buildButton({required Widget icon, bool active = false}) {
+  Widget _buildButton(
+      {required Widget icon, required int index, bool active = false}) {
     const double buttonSize = 60;
 
     return Container(
@@ -21,7 +26,9 @@ class BottomNavigation extends StatelessWidget {
             )
           : null,
       child: IconButton(
-        onPressed: () {},
+        onPressed: () {
+          onTap(index);
+        },
         icon: icon,
       ),
     );
@@ -38,15 +45,19 @@ class BottomNavigation extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           _buildButton(
+              index: 0,
               icon: const FaIcon(FontAwesomeIcons.sistrix),
               active: activeIndex == 0),
           _buildButton(
+              index: 1,
               icon: const FaIcon(FontAwesomeIcons.building),
               active: activeIndex == 1),
           _buildButton(
+              index: 2,
               icon: const FaIcon(FontAwesomeIcons.heart),
               active: activeIndex == 2),
           _buildButton(
+              index: 3,
               icon: const FaIcon(FontAwesomeIcons.user),
               active: activeIndex == 3),
         ],
