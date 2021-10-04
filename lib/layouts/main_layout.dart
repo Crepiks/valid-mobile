@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:valid/common/constants/colors.dart';
 import 'package:valid/layouts/components/bottom_navigation.dart';
+import 'package:valid/tasks/views/tasks_view.dart';
 
 class MainLayout extends StatefulWidget {
   const MainLayout({Key? key}) : super(key: key);
@@ -20,6 +21,7 @@ class _MainLayoutState extends State<MainLayout> {
       children: [
         Container(
           color: backgroundColor,
+          child: const TasksView(),
         ),
         Padding(
             padding: const EdgeInsets.only(right: 20, bottom: 40, left: 20),
