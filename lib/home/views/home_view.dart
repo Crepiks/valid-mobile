@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:valid/home/views/components/home_banner.dart';
 import 'package:valid/home/views/components/home_header.dart';
-import 'package:valid/home/views/components/job_card.dart';
+import 'package:valid/common/components/job_card.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);

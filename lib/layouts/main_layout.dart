@@ -1,7 +1,10 @@
 import "package:flutter/material.dart";
 import 'package:valid/common/constants/colors.dart';
+import 'package:valid/jobs/views/jobs_view.dart';
 import 'package:valid/layouts/components/bottom_navigation.dart';
 import 'package:valid/home/views/home_view.dart';
+
+const screens = [HomeView(), JobsView()];
 
 class MainLayout extends StatefulWidget {
   const MainLayout({Key? key}) : super(key: key);
@@ -11,7 +14,7 @@ class MainLayout extends StatefulWidget {
 }
 
 class _MainLayoutState extends State<MainLayout> {
-  final int _activeIndex = 0;
+  final int _activeScreenIndex = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -21,12 +24,12 @@ class _MainLayoutState extends State<MainLayout> {
       children: [
         Container(
           color: backgroundColor,
-          child: const HomeView(),
+          child: screens[_activeScreenIndex],
         ),
         Padding(
             padding: const EdgeInsets.only(right: 20, bottom: 40, left: 20),
             child: BottomNavigation(
-              activeIndex: _activeIndex,
+              activeIndex: _activeScreenIndex,
             )),
       ],
     ));

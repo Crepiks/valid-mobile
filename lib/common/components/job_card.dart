@@ -1,6 +1,5 @@
 import "package:flutter/material.dart";
-import 'package:valid/common/constants/colors.dart';
-import 'package:valid/home/views/components/job_tag.dart';
+import 'package:valid/common/components/job_tag.dart';
 
 class JobCard extends StatelessWidget {
   const JobCard({Key? key}) : super(key: key);
