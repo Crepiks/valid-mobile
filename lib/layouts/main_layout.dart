@@ -3,9 +3,10 @@ import 'package:valid/common/constants/colors.dart';
 import 'package:valid/jobs/views/jobs_view.dart';
 import 'package:valid/layouts/components/bottom_navigation.dart';
 import 'package:valid/home/views/home_view.dart';
+import 'package:valid/profile/views/profile_view.dart';
 import 'package:valid/saved_jobs/views/saved_jobs_view.dart';
 
-const screens = [HomeView(), JobsView(), SavedJobsView()];
+const screens = [HomeView(), JobsView(), SavedJobsView(), ProfileView()];
 
 class MainLayout extends StatefulWidget {
   const MainLayout({Key? key}) : super(key: key);
@@ -15,7 +16,7 @@ class MainLayout extends StatefulWidget {
 }
 
 class _MainLayoutState extends State<MainLayout> {
-  final int _activeScreenIndex = 2;
+  final int _activeScreenIndex = 3;
 
   @override
   Widget build(BuildContext context) {
